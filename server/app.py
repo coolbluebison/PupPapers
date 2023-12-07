@@ -21,3 +21,11 @@ def index():
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
 
+
+class InfoPackage(Resource):
+
+    def get(self):
+
+        return "hi"
+    
+api.add_resource(InfoPackage, "/infopackage")
