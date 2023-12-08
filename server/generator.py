@@ -27,10 +27,12 @@ def create_certificate(template_path, output_pdf_path, birthdate_text, name_text
 
     # Function to center text
     def center_text(text, font, center_pos):
-        text_width, text_height = draw.textbbox(text, font=font)
-        return (center_pos[0] - text_width / 2, center_pos[1] - text_height / 2)
+        text_width = draw.textlength(text=text, font=font, direction='ltr')
+        text_height = draw.textlength(text=text, font=font, direction='ttb')
+        return (center_pos[0] - text_width / 2, center_pos[1])
 
 
+# center_pos[1] - text_height / 2
 
     # Overlay the texts on the image
 
@@ -43,12 +45,12 @@ def create_certificate(template_path, output_pdf_path, birthdate_text, name_text
 
 
     # Calculate positions to center-align the text
-    position_name = center_text(name_text, font1, (665, 375))
-    position_day = center_text(day_text, font2, (525, 525))
-    position_monthyear = center_text(monthyear_text, font2, (860, 525))
-    position_breed = center_text(breed_text, font3, (320, 670))
-    position_gender = center_text(gender_text, font3, (980, 670))
-    position_parent = center_text(parent_text, font3, (680, 800))
+    position_name = center_text(name_text, font1, (750, 375))
+    position_day = center_text(day_text, font2, (560, 540))
+    position_monthyear = center_text(monthyear_text, font2, (1010, 540))
+    position_breed = center_text(breed_text, font3, (458, 665))
+    position_gender = center_text(gender_text, font3, (1048, 665))
+    position_parent = center_text(parent_text, font3, (750, 800))
 
     # position_name = (665, 375)
     
