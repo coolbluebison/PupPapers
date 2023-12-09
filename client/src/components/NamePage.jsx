@@ -42,7 +42,7 @@ function NamePage( {setName} ) {
             <Button size="lg" 
                 variant="soft" 
                 color="warning"
-                onClick={handleSubmit}
+                onClick= {handleSubmit}
             >
                 <Link to="/birthday">Next</Link>
             </Button>  
