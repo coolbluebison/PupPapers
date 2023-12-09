@@ -14,6 +14,7 @@ import BreedPage from "./components/BreedPage"
 import GenderPage from "./components/GenderPage"
 import ParentPage from "./components/ParentPage"
 import DownloadPage from "./components/DownloadPage"
+import DisplayPage from "./components/DisplayPage"
 
 
 
@@ -26,6 +27,7 @@ function App() {
   const [breed, setBreed] = useState('')
   const [gender, setGender] = useState('')
   const [parent, setParent] = useState('')
+  // const [isPdfReady, setIsPdfReady] = useState(false);
 
 
 
@@ -41,6 +43,7 @@ function App() {
         <Route path="/gender" element= { <GenderPage setGender={setGender}/> } />
         <Route path="/parent" element= { <ParentPage setParent={setParent} /> } />
         <Route path="/download" element= { <DownloadPage birthdate={birthdate} name={name} breed={breed} gender={gender} parent={parent} /> } />
+        <Route path="/display" element= { <DisplayPage /> } />
 
 
       </Routes>

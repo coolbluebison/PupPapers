@@ -46,7 +46,7 @@ function ParentPage({setParent}) {
                 color="warning"
                 onClick={handleSubmit}
             >
-                <Link to="/download">Lets Get Started</Link>
+                <Link to="/download">Next</Link>
             </Button>  
                     
         </>

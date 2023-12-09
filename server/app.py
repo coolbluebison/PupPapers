@@ -3,8 +3,9 @@
 # Standard library imports
 
 # Remote library imports
-from flask import request
+from flask import request, send_file
 from flask_restful import Resource
+import os
 
 # Local imports
 from config import app, db, api
@@ -17,12 +18,6 @@ import generator
 @app.route('/')
 def index():
     return '<h1>Phase 4 Project Server</h1>'
-
-
-if __name__ == '__main__':
-    app.run(port=5555, debug=True)
-
-
 
 
 class InfoPackage(Resource):
@@ -38,6 +33,9 @@ class InfoPackage(Resource):
         gender_text = data['gender']
         parent_text = data['parent']
 
+        if os.path.exists(output_pdf_path):
+            os.remove(output_pdf_path)
+
         generator.create_certificate(
             template_path=template_path,
             output_pdf_path=output_pdf_path,
@@ -49,8 +47,30 @@ class InfoPackage(Resource):
         )
         
         # Assuming you want to return a confirmation or result
+
         return {'message': 'Certificate created successfully'}, 200
+    
 
 api.add_resource(InfoPackage, '/infopackage')
+
+
+
+class SendCert(Resource):
+    def get(self):
+        output_pdf = './template/cert.pdf'
+        try:
+            return send_file(output_pdf)
+        except Exception as e:
+            return {'error': str(e)}, 500
+
+api.add_resource(SendCert, '/cert')
+
+# as_attachment=True
+# , attachment_filename='certificate.pdf'
+
+
+if __name__ == '__main__':
+    app.run(port=5555, debug=True)
+
 
 

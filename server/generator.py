@@ -48,7 +48,7 @@ def create_certificate(template_path, output_pdf_path, birthdate_text, name_text
     position_name = center_text(name_text, font1, (750, 375))
     position_day = center_text(day_text, font2, (560, 540))
     position_monthyear = center_text(monthyear_text, font2, (1010, 540))
-    position_breed = center_text(breed_text, font3, (458, 665))
+    position_breed = center_text(breed_text, font3, (453, 665))
     position_gender = center_text(gender_text, font3, (1048, 665))
     position_parent = center_text(parent_text, font3, (750, 800))
 
@@ -97,13 +97,13 @@ def create_certificate(template_path, output_pdf_path, birthdate_text, name_text
         print(img.width, img.height)
 
 
-# Testing
-create_certificate(
-    template_path='./template/template.png',
-    output_pdf_path='./template/cert.pdf',
-    birthdate_text = '1st September 2019', 
-    name_text = 'Layla', 
-    breed_text = 'Golden Retriever', 
-    gender_text = 'Female', 
-    parent_text = 'Senator Alexandra Yildiran',
-)
+# # Testing
+# create_certificate(
+#     template_path='./template/template.png',
+#     output_pdf_path='./template/cert.pdf',
+#     birthdate_text = '1st September 2019', 
+#     name_text = 'Layla', 
+#     breed_text = 'Golden Retriever', 
+#     gender_text = 'Female', 
+#     parent_text = 'Senator Alexandra Yildiran',
+# )

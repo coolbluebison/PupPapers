@@ -8,13 +8,13 @@ import { Link } from 'react-router-dom';
 function DownloadPage( { birthdate, name, breed, gender, parent } ) {
 
 
-    
 
     function handleClick(e) {
         e.preventDefault()
 
         fetch ('http://127.0.0.1:5555/infopackage', {
             method: 'POST',
+            headers: {'content-type':'application/json'},
             body: JSON.stringify( {
                 'birthdate': birthdate,
                 'name':name,
@@ -26,8 +26,8 @@ function DownloadPage( { birthdate, name, breed, gender, parent } ) {
           .then(response => response.json())
           .then(data => {
             console.log(data);
-            alert('The certificate is generating!');
-          })
+            alert('The certificate is generating!')}
+          )
           .catch(error => {
             console.error('Error:', error);
             alert('Error creating the certificate!');
@@ -46,7 +46,7 @@ function DownloadPage( { birthdate, name, breed, gender, parent } ) {
                 color="warning"
                 onClick={handleClick}
             >
-                Generate the Certificate
+                <Link to="/display">Next</Link>
             </Button>
         </>
     );
