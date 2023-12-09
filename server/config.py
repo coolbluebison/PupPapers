@@ -11,7 +11,16 @@ from sqlalchemy import MetaData
 # Local imports
 
 # Instantiate app, set attributes
-app = Flask(__name__)
+# app = Flask(__name__)
+
+app = Flask(
+    __name__,
+    static_url_path='',
+    static_folder='../client/dist',
+    template_folder='../client/dist'
+)
+
+
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://puppaper_db_user:lPIvnyJ6mXL8kVtSNqgqocGE5ctTzCSb@dpg-clprhoogqk6s738m0vcg-a.oregon-postgres.render.com/puppaper_db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
