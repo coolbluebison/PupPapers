@@ -12,7 +12,7 @@ from sqlalchemy import MetaData
 
 # Instantiate app, set attributes
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://puppaper_db_user:lPIvnyJ6mXL8kVtSNqgqocGE5ctTzCSb@dpg-clprhoogqk6s738m0vcg-a.oregon-postgres.render.com/puppaper_db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
 
