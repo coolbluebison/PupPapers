@@ -15,9 +15,9 @@ import generator
 
 # Views go here!
 
-@app.route('/')
-def index():
-    return '<h1>Phase 4 Project Server</h1>'
+# @app.route('/')
+# def index():
+#     return '<h1>Phase 4 Project Server</h1>'
 
 
 class InfoPackage(Resource):
@@ -67,6 +67,12 @@ api.add_resource(SendCert, '/cert')
 
 # as_attachment=True
 # , attachment_filename='certificate.pdf'
+
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    return render_template("index.html")
 
 
 if __name__ == '__main__':
