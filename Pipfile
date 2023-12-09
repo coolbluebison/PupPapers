@@ -13,7 +13,11 @@ flask-restful = "*"
 flask-cors = "*"
 faker = "*"
 flask-bcrypt = "*"
-pil = "*"
+pillow = "*"
+honcho = "*"
+gunicorn = "*"
+psycopg2 = "*"
+reportlab = "*"
 
 [requires]
 python_full_version = "3.8.13"
